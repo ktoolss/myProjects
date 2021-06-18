@@ -10,7 +10,7 @@ app.get('/', (req, res)=>{
 });
 
 app.get('*', (req, res)=>{
-    var errors = ["You broke this", "My god, what have you done?", "Impossible. The website has been sold", "I'll try and make my way to the ordinary world"];
+    var errors = ["No hacking!", "Return to main page.", "Wrong Address...", "Go back!"];
     var pageError = errors[[Math.floor(Math.random() * errors.length)]];
     res.send(pageError);
 });
