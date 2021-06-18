@@ -4,7 +4,7 @@ exports.data = [
     {
         src: "assets/images/austin.jpg",
         alt: "Resume",
-        href: "https://github.com/ACCSoftwareBootcamp/kristian/blob/master/portfolio/Kristian_2021.pdf",
+        href: "https://github.com/ACCSoftwareBootcamp/kristian/blob/master/portfolio/Kristian_Smith.pdf",
         content: "Resume",
         logo: "assets/Logos/dashtrack.png"
     },
