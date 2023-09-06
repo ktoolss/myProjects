@@ -1,0 +1,11 @@
+<div class="center-container">
+  <app-header></app-header>
+
+  <button (click)="clearLocalStorage()">Clear Local Storage</button>
+
+
+  <app-poll-list [polls]="polls"></app-poll-list>
+  <app-poll-list [polls]="industryPolls"></app-poll-list>
+
+  <router-outlet></router-outlet>
+</div>

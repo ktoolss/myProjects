@@ -1,0 +1,10 @@
+.poll-list-container {
+    display: flex;
+    justify-content: space-between; /* Distribute items with space between them */
+    align-items: center; /* Align items vertically in the center */
+}
+
+/* Adjust the width of each app-poll-list component */
+.app-poll-list {
+    width: 30%; /* Adjust as needed */
+}

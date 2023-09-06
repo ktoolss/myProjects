@@ -1,0 +1,15 @@
+<div *ngIf="poll">
+  <h2>{{ poll.question }}</h2>
+  <form (ngSubmit)="submitVote()">
+    <ul>
+      <li *ngFor="let option of poll.options">
+        <label>
+          <input type="radio" name="pollOptions" [value]="option" [(ngModel)]="selectedOption">
+          {{ option.text }}
+        </label>
+        <span class="vote-count">| Votes: {{ option.votes }}</span>
+      </li>
+    </ul>
+    <button type="submit">Vote</button>
+  </form>
+</div>
