@@ -1,0 +1,9 @@
+<div class="dropdown">
+    <button (click)="toggleDropdown()">Show {{ pollSetName }}</button>
+    <div class="dropdown-content" [hidden]="!showPolls">
+        <app-poll-list [polls]="polls"></app-poll-list>
+    </div>
+</div>
+    
+
+<!-- TODO do the angular errors on the screen. get polls in this file for app-poll-list -->

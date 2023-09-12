@@ -1,0 +1,28 @@
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    display: none; /* Initially hide the content */
+  }
+  
+  .dropdown button {
+    background-color: #3498db;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Show the content when dropdown is active */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  

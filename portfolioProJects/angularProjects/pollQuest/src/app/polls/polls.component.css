@@ -1,0 +1,16 @@
+.polls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.content-container {
+    flex: 1; /* Allow the container to take available space */
+    margin-right: 10px; /* Adjust the margin as needed */
+}
+
+.small-image {
+    width: 500px;
+    height: auto;
+}
