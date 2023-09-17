@@ -12,6 +12,9 @@ import { PollDetailComponent } from './poll-detail/poll-detail.component';
 import { HeaderComponent } from './header/header.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { PollListDropdownComponent } from './poll-list-dropdown/poll-list-dropdown.component';
+import { HomeComponent } from './home/home.component';
+import { PollsComponent } from './polls/polls.component';
 
 
 @NgModule({
@@ -20,7 +23,10 @@ import { FormsModule } from '@angular/forms';
     PollComponent,
     PollListComponent,
     PollDetailComponent,
-    HeaderComponent
+    HeaderComponent,
+    PollListDropdownComponent,
+    HomeComponent,
+    PollsComponent
   ],
   imports: [
     BrowserModule,

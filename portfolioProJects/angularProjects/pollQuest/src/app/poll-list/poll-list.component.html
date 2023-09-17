@@ -1,7 +1,7 @@
 <ul>
     <div class="poll-list-container">
-        <li *ngFor="let poll of polls">
-            <a [routerLink]="['/poll', poll.id]">{{ poll.question }}</a>
+        <li *ngFor="let poll of polls" class="poll-list-item">
+            <a [routerLink]="['/polls', 'poll', poll.id]">{{ poll.question }}</a>
         </li>
     </div>
 </ul>

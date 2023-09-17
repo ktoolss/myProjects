@@ -15,4 +15,5 @@ export class PollListComponent {
   navigateToPoll(pollId: number) {
     this.router.navigate(['poll', pollId]);
   }
+
 }

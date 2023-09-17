@@ -1,10 +1,15 @@
+/* app-poll-list.component.css */
 .poll-list-container {
-    display: flex;
-    justify-content: space-between; /* Distribute items with space between them */
-    align-items: center; /* Align items vertically in the center */
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-/* Adjust the width of each app-poll-list component */
-.app-poll-list {
-    width: 30%; /* Adjust as needed */
+.poll-list-item {
+    padding: 10px; /* Add padding to create space between items */
+    border-bottom: 1px solid #ccc; /* Add a border between items */
+}
+
+.poll-list-item:last-child {
+    border-bottom: none; /* Remove border from the last item */
 }
