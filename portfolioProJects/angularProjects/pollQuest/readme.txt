@@ -22,29 +22,34 @@ Explore industry-specific polls to gain insights into trends, preferences, and m
 
 The Angular Polling App is built with responsive design in mind, ensuring a seamless user experience on both desktop and mobile devices.
 
-## Components
+### Components
 
 The app is structured into several key components, each serving a specific purpose:
 
 ### 1. Polls Component
 
-The `PollsComponent` serves as the main interface for users. It displays the list of available polls and allows users to explore and participate in them.
+Purpose: The PollsComponent serves as the main interface for users.
+Functionality: It displays the list of available polls and allows users to explore and participate in them.
 
 ### 2. Poll Detail Component
 
-The `PollDetailComponent` provides a detailed view of individual polls. Users can view the poll question, select their preferred options, and see real-time vote counts.
+Purpose: The PollDetailComponent provides a detailed view of individual polls.
+Functionality: Users can view the poll question, select their preferred options, and see real-time vote counts. They can also track their past voting actions via local storage.
 
 ### 3. Home Component
 
-The `HomeComponent` represents the app's landing page. It typically includes a brief introduction to the app and may showcase featured or popular polls.
+Purpose: The HomeComponent represents the app's landing page.
+Functionality: It typically includes a brief introduction to the app and may showcase featured or popular polls.
 
 ### 4. Poll List Component
 
-The `PollListComponent` is responsible for rendering the list of available polls. It is used within both the `PollsComponent` and `PollDetailComponent` to display polls in a user-friendly format.
+Purpose: The PollListComponent is responsible for rendering the list of available polls.
+Functionality: It is used within both the PollsComponent and PollDetailComponent to display polls in a user-friendly format.
 
 ### 5. Poll List Dropdown Component
 
-The `PollListDropdownComponent` is an essential UI element that allows users to access different sets of polls, such as "Main Polls" and "Industry Polls." It enhances the app's navigation and user experience.
+Purpose: The PollListDropdownComponent is an essential UI element.
+Functionality: It allows users to access different sets of polls, such as "Main Polls" and "Industry Polls," enhancing the app's navigation and user experience.
 
 ## Usage
 
