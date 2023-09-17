@@ -15,6 +15,14 @@ import { FormsModule } from '@angular/forms';
 import { PollListDropdownComponent } from './poll-list-dropdown/poll-list-dropdown.component';
 import { HomeComponent } from './home/home.component';
 import { PollsComponent } from './polls/polls.component';
+import { CreatePollComponent } from './create-poll/create-poll.component';
+import { PollsService } from './polls.service';
+
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { GeneralPollListComponent } from './general-poll-list/general-poll-list.component';
+import { IndustryPollListComponent } from './industry-poll-list/industry-poll-list.component';
 
 
 @NgModule({
@@ -26,17 +34,23 @@ import { PollsComponent } from './polls/polls.component';
     HeaderComponent,
     PollListDropdownComponent,
     HomeComponent,
-    PollsComponent
+    PollsComponent,
+    CreatePollComponent,
+    GeneralPollListComponent,
+    IndustryPollListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatCardModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatRadioModule,
     BrowserAnimationsModule,
     RouterModule.forRoot([]),
     FormsModule
   ],
-  providers: [],
+  providers: [PollsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

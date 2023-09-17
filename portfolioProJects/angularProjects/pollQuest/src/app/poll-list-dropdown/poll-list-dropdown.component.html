@@ -1,6 +1,6 @@
 <div class="dropdown">
     <button (click)="toggleDropdown()">Show {{ pollSetName }}</button>
-    <div class="dropdown-content" [hidden]="!showPolls">
+    <div class="dropdown-content" [hidden]="!showDropdown">
         <app-poll-list [polls]="polls"></app-poll-list>
     </div>
 </div>

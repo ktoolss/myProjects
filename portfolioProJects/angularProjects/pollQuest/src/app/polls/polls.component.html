@@ -1,9 +1,25 @@
 <div class="polls">
     <div class="content-container">
-      <app-poll-list-dropdown [polls]="polls" [pollSetName]="'Main Polls'"></app-poll-list-dropdown>
-      <app-poll-list-dropdown [polls]="industryPolls" [pollSetName]="'Industry Polls'"></app-poll-list-dropdown>
-      <router-outlet></router-outlet>
+        <a [routerLink]="['/polls/general']">General Polls</a>
+        <br>
+        <a [routerLink]="['/polls/industry']">Industry Polls</a>
+        <router-outlet></router-outlet>
     </div>
     <img src="assets/whiteRasta.jpg" alt="white rasta" class="small-image">
-  </div>
-  
+</div>
+
+<!-- Dropdown for General Polls -->
+<!-- <label for="generalPollsDropdown">General Polls:</label>
+<select id="generalPollsDropdown" (change)="onPollSelected($event)">
+  <option *ngFor="let poll of generalPolls" [value]="poll.id">{{ poll.question }}</option>
+</select> -->
+
+<!-- Dropdown for Industry Polls -->
+<!-- <label for="industryPollsDropdown">Industry Polls:</label>
+<select id="industryPollsDropdown" (change)="onPollSelected($event)">
+  <option *ngFor="let poll of industryPolls" [value]="poll.id">{{ poll.question }}</option>
+</select> -->
+
+
+
+<!-- <router-outlet></router-outlet> -->

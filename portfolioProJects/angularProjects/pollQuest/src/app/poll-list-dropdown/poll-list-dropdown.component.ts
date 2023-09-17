@@ -11,11 +11,9 @@ export class PollListDropdownComponent {
   @Input() industryPolls: Poll[] = [];
   @Input() pollSetName: string = '';
 
-  showPolls: boolean = false;
-  showIndustryPolls: boolean = false;
+  showDropdown: boolean = false;
 
   toggleDropdown() {
-    this.showPolls = !this.showPolls;
-    this.showIndustryPolls = !this.showIndustryPolls;
+    this.showDropdown = !this.showDropdown;
   }
 }

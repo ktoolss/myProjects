@@ -1,15 +1,14 @@
-<!-- poll.component.html -->
 <mat-card class="poll-card">
-    <mat-card-content>
-      <h2>{{ poll.question }}</h2>
-      <ul>
-        <li *ngFor="let option of poll.options">
-          <label>
-            <input type="radio" name="poll{{ poll.id }}" (change)="vote(option)">
+  <mat-card-content>
+    <h2>{{ poll.question }}</h2>
+    <ul>
+      <li *ngFor="let option of poll.options">
+        <label>
+          <mat-radio-button (change)="vote(option)">
             {{ option.text }} ({{ option.votes }} votes)
-          </label>
-        </li>
-      </ul>
-    </mat-card-content>
-  </mat-card>
-  
+          </mat-radio-button>
+        </label>
+      </li>
+    </ul>
+  </mat-card-content>
+</mat-card>

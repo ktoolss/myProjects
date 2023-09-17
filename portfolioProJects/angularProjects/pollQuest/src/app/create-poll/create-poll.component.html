@@ -1,0 +1,18 @@
+<form (submit)="createPoll()">
+    <label for="question">Question:</label>
+    <input type="text" id="question" name="question" [(ngModel)]="newPoll.question" required>
+    <br>
+    <select [(ngModel)]="selectedPollType">
+        <option *ngFor="let type of pollTypes" [ngValue]="type">{{type}}</option>
+    </select>
+    <br>
+    <label for="options">Options:</label>
+    <div *ngFor="let option of newPoll.options; let i = index trackBy: trackByFn">
+        <input type="text" id="option{{ i }}" name="options" [(ngModel)]="newPoll.options[i]" required>
+    </div>
+
+    <button type="button" (click)="addOption()">Add Option</button>
+    <button type="submit">Create Poll</button>
+</form>
+
+<img src="assets/create.jpg" alt="People polling on laptops at table" class="small-image">

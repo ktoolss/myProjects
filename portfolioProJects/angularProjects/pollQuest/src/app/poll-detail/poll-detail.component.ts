@@ -14,7 +14,10 @@ import { VoteService } from '../vote.service';
 export class PollDetailComponent implements OnInit {
   pollId!: number;
   poll: Poll | undefined;
+  selectedPollId: number | null = null;
   selectedOption: Option | null = null;
+
+
 
   constructor(private route: ActivatedRoute, private voteService: VoteService) {}
 
@@ -23,26 +26,19 @@ export class PollDetailComponent implements OnInit {
       const idParam = params.get('id');
       if (idParam) {
         this.pollId = +idParam;
-        this.poll = this.voteService.getVoteData(this.pollId) ||
-                    mockPolls.find(poll => poll.id === this.pollId) ||
-                    mockIndustryPolls.find(poll => poll.id === this.pollId);
+  
+        this.poll = this.voteService.getVoteData(this.pollId)
+  
+        const storedData = localStorage.getItem(`poll_${this.pollId}`);
+        if (storedData) {
+          this.poll = JSON.parse(storedData);
+        } else {
+          // Merge both mock arrays and find the desired poll
+          this.poll = [...mockPolls, ...mockIndustryPolls].find(poll => poll.id === this.pollId);
+        }
       }
     });
-    const idParam = this.route.snapshot.paramMap.get('id');
-
-    if (idParam) {
-      this.pollId = +idParam;
-      this.poll = mockPolls.find(poll => poll.id === this.pollId);
-
-      // Load stored vote data from localStorage
-      const storedData = localStorage.getItem(`poll_${this.pollId}`);
-      if (storedData) {
-        this.poll = JSON.parse(storedData);
-      } else {
-        // Use default data if no stored data is available
-        this.poll = mockPolls.find(poll => poll.id === this.pollId);
-      }
-    }
+    
   }
   
   vote(option: Option) {

@@ -1,6 +1,5 @@
-// poll.component.ts
 import { Component, Input } from '@angular/core';
-import { Poll, PollOption } from './poll.types'; // Import shared types
+import { Poll, Option } from './poll.types'; 
 
 @Component({
   selector: 'app-poll',
@@ -8,9 +7,9 @@ import { Poll, PollOption } from './poll.types'; // Import shared types
   styleUrls: ['./poll.component.css']
 })
 export class PollComponent {
-  @Input() poll!: Poll; // Input property to receive poll data
+  @Input() poll!: Poll;
 
-  vote(option: PollOption) {
+  vote(option: Option) {
     option.votes++;
   }
 }
