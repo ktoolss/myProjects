@@ -59,14 +59,6 @@ The `PollListDropdownComponent` is an essential UI element that allows users to 
 - HTML and CSS: Used for structuring and styling the app's user interface.
 - Angular Material: A UI component library for Angular, providing a consistent design.
 
-## Contributing
-
-If you'd like to contribute to the development of this app, please follow our [contributing guidelines](CONTRIBUTING.md).
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## About
 
 The Angular Polling App was created to empower individuals and organizations with the tools to conduct meaningful polls and gather valuable data. It's an open and accessible platform designed to foster engagement and provide insights into a wide range of topics.
