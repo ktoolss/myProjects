@@ -28,6 +28,7 @@ export class PollsService {
 
   addPoll(poll: Poll) {
     this.polls.push(poll);
+    console.log("Polls after adding:", this.polls);
     this.pollUpdated.next([...this.polls]);
   }
 }

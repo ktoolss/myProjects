@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Poll, PollType } from '../poll/poll.types';
 import { Subscription } from 'rxjs';
-import { PollsService } from '../polls.service';
+import { PollService } from '../poll.service';
 
 @Component({
   selector: 'app-polls',
@@ -12,26 +12,27 @@ import { PollsService } from '../polls.service';
 export class PollsComponent {
   public generalPolls: Poll[] = [];
   public industryPolls: Poll[] = [];
-  private pollUpdateSubscription!: Subscription;
+  private pollUpdateSubscription1!: Subscription;
+  private pollUpdateSubscription2!: Subscription;
 
-  constructor(private pollsService: PollsService, private router: Router) { }
+  constructor(private pollService: PollService, private router: Router) { }
 
   ngOnInit(): void {
     this.updatePolls();
 
-    this.pollUpdateSubscription = this.pollsService.pollUpdated.subscribe(() => {
+    this.pollUpdateSubscription1 = this.pollService.getPolls().subscribe(() => {
       this.updatePolls();
     });
 
-    this.pollUpdateSubscription = this.pollsService.pollUpdated.subscribe(() => {
-      this.generalPolls = this.pollsService.getPollsByType(PollType.General);
-      this.industryPolls = this.pollsService.getPollsByType(PollType.Industry);
+    this.pollUpdateSubscription2 = this.pollService.getPolls().subscribe(() => {
+      this.generalPolls = this.pollService.getPollsByType(PollType.General);
+      this.industryPolls = this.pollService.getPollsByType(PollType.Industry);
     });
   }
 
   private updatePolls(): void {
-    this.generalPolls = this.pollsService.getPollsByType(PollType.General);
-    this.industryPolls = this.pollsService.getPollsByType(PollType.Industry);
+    this.generalPolls = this.pollService.getPollsByType(PollType.General);
+    this.industryPolls = this.pollService.getPollsByType(PollType.Industry);
   }
 
   onPollSelected(event: Event): void {
@@ -43,6 +44,7 @@ export class PollsComponent {
 
 
   ngOnDestroy(): void {
-    this.pollUpdateSubscription.unsubscribe();
+    this.pollUpdateSubscription1.unsubscribe();
+    this.pollUpdateSubscription2.unsubscribe();
   }
 }

@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Poll, Option } from '../poll/poll.types';
 import { mockPolls, mockIndustryPolls } from '../poll/poll.types';
 import { VoteService } from '../vote.service';
+import { PollService } from '../poll.service';
+
 
 
 @Component({
@@ -18,28 +20,35 @@ export class PollDetailComponent implements OnInit {
   selectedOption: Option | null = null;
 
 
-
-  constructor(private route: ActivatedRoute, private voteService: VoteService) {}
+  constructor(private route: ActivatedRoute, private voteService: VoteService, private pollService: PollService) {}
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       const idParam = params.get('id');
       if (idParam) {
         this.pollId = +idParam;
+        
+        // First, check in PollService
+        this.poll = this.pollService.getPollById(this.pollId);
+        
+        // If not found in PollService, check in local storage
+        if (!this.poll) {
+          const storedData = localStorage.getItem(`poll_${this.pollId}`);
+          if (storedData) {
+            this.poll = JSON.parse(storedData);
+          }
+        }
   
-        this.poll = this.voteService.getVoteData(this.pollId)
-  
-        const storedData = localStorage.getItem(`poll_${this.pollId}`);
-        if (storedData) {
-          this.poll = JSON.parse(storedData);
-        } else {
-          // Merge both mock arrays and find the desired poll
+        // If still not found, then fetch from mock data
+        if (!this.poll) {
           this.poll = [...mockPolls, ...mockIndustryPolls].find(poll => poll.id === this.pollId);
         }
       }
+      console.log('All Poll IDs: ', this.pollService.getAllPollIds());
+
     });
-    
   }
+  
   
   vote(option: Option) {
     this.selectedOption = option;

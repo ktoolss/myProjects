@@ -70,4 +70,7 @@ The Angular Polling App was created to empower individuals and organizations wit
 
 Enjoy using the Angular Polling App! Feel free to provide feedback and report any issues you encounter.
 
+Home Screen:
+
+
  
