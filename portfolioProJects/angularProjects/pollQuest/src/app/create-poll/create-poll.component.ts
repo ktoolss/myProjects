@@ -16,20 +16,25 @@ export class CreatePollComponent {
   @Output() pollCreated: EventEmitter<Poll> = new EventEmitter();
 
   selectedPollType: PollType = PollType.General;
-  pollTypes = Object.values(PollType);  // this gives an array of all PollType values
+  pollTypes = Object.keys(PollType).filter(key => isNaN(Number(key)));
+
 
 
   newPoll = {
     question: '',
-    options: ['']
+    options: ['', '', '']
   };
 
+  updateSelectedPollType(event: any) {
+    this.selectedPollType = event.target.value as PollType;
+    console.log("Updated selected poll type to:", this.selectedPollType);
+  }
+  
   addOption() {
     this.newPoll.options.push('');
   }
 
   createPoll() {
-    console.log('working here');
     const existingPollIds = this.pollService.getAllPollIds();
     const newPoll: Poll = {
       id: generateUniqueId(existingPollIds),
@@ -42,14 +47,20 @@ export class CreatePollComponent {
       }))
     };
     
+    console.log('newPoll: ', newPoll);
     this.pollService.addPoll(newPoll);
     this.pollCreated.emit(newPoll);
-    console.log('All Poll IDs CP: ', this.pollService.getAllPollIds());
 
   }
   
 
-
+  removeOption() {
+    // Only remove an option if there's more than one to ensure at least one option remains
+    if (this.newPoll.options.length > 1) {
+      this.newPoll.options.pop();
+    }
+  }
+  
 
   trackByFn(index: any, item: any) {
     return index;

@@ -19,7 +19,6 @@ export class GeneralPollListComponent implements OnInit {
     this.basePolls = mockPolls;  // Your initial polls
 
     this.pollSubscription = this.pollService.getPolls().subscribe(servicePolls => {
-        console.log("Received updated polls:", servicePolls);
         const allPolls = [...this.basePolls, ...servicePolls];
         this.generalPolls = allPolls;  // Filtering based on type, if necessary
     });

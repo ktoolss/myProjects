@@ -23,6 +23,13 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { GeneralPollListComponent } from './general-poll-list/general-poll-list.component';
 import { IndustryPollListComponent } from './industry-poll-list/industry-poll-list.component';
+import { NationalPollListComponent } from './national-poll-list/national-poll-list.component';
+import { StatePollListComponent } from './state-poll-list/state-poll-list.component';
+import { LocalPollListComponent } from './local-poll-list/local-poll-list.component';
+import { PoliticsPollListComponent } from './politics-poll-list/politics-poll-list.component';
+import { MusicPollListComponent } from './music-poll-list/music-poll-list.component';
+import { TelevisionPollListComponent } from './television-poll-list/television-poll-list.component';
+import { MarketingPollListComponent } from './marketing-poll-list/marketing-poll-list.component';
 
 
 @NgModule({
@@ -37,7 +44,14 @@ import { IndustryPollListComponent } from './industry-poll-list/industry-poll-li
     PollsComponent,
     CreatePollComponent,
     GeneralPollListComponent,
-    IndustryPollListComponent
+    IndustryPollListComponent,
+    NationalPollListComponent,
+    StatePollListComponent,
+    LocalPollListComponent,
+    PoliticsPollListComponent,
+    MusicPollListComponent,
+    TelevisionPollListComponent,
+    MarketingPollListComponent
   ],
   imports: [
     BrowserModule,

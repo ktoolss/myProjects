@@ -45,6 +45,7 @@ export class PollService {
   addPoll(poll: Poll) {
     this.polls.push(poll);
     // Optionally, emit an event if you want other components to react to the change.
+    console.log('addPoll this.polls: ', this.polls)
     this.pollsSubject.next([...this.polls]);
   }
   

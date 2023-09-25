@@ -1,0 +1,6 @@
+<h2>Politics Polls</h2>
+<ul>
+  <li *ngFor="let poll of politicsPolls">
+    <a [routerLink]="['/polls/poll', poll.id]">{{ poll.question }}</a>
+  </li>
+</ul>

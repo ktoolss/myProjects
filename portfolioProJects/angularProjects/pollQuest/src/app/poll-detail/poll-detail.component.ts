@@ -2,7 +2,17 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Poll, Option } from '../poll/poll.types';
-import { mockPolls, mockIndustryPolls } from '../poll/poll.types';
+import { 
+        mockPolls, 
+        mockIndustryPolls,
+        mockNationalPolls,
+        mockStatePolls,
+        mockLocalPolls,
+        mockPoliticsPolls,
+        mockMusicPolls,
+        mockTelevisionPolls,
+        mockMarketingPolls,
+      } from '../poll/poll.types';
 import { VoteService } from '../vote.service';
 import { PollService } from '../poll.service';
 
@@ -41,7 +51,17 @@ export class PollDetailComponent implements OnInit {
   
         // If still not found, then fetch from mock data
         if (!this.poll) {
-          this.poll = [...mockPolls, ...mockIndustryPolls].find(poll => poll.id === this.pollId);
+          this.poll = [
+            ...mockPolls,
+            ...mockIndustryPolls,
+            ...mockNationalPolls,
+            ...mockStatePolls,
+            ...mockLocalPolls,
+            ...mockPoliticsPolls,
+            ...mockMusicPolls,
+            ...mockTelevisionPolls,
+            ...mockMarketingPolls,
+          ].find(poll => poll.id === this.pollId);
         }
       }
       console.log('All Poll IDs: ', this.pollService.getAllPollIds());

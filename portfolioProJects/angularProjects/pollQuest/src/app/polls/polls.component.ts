@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Poll, PollType } from '../poll/poll.types';
 import { Subscription } from 'rxjs';
+import { Poll, PollType } from '../poll/poll.types';
 import { PollService } from '../poll.service';
 
 @Component({
@@ -9,42 +9,33 @@ import { PollService } from '../poll.service';
   templateUrl: './polls.component.html',
   styleUrls: ['./polls.component.css']
 })
-export class PollsComponent {
-  public generalPolls: Poll[] = [];
-  public industryPolls: Poll[] = [];
-  private pollUpdateSubscription1!: Subscription;
-  private pollUpdateSubscription2!: Subscription;
+export class PollsComponent implements OnInit, OnDestroy {
+  public pollsByType: { [key in PollType]?: Poll[] } = {};
 
-  constructor(private pollService: PollService, private router: Router) { }
+  private pollUpdateSubscription!: Subscription;
+
+  constructor(private pollService: PollService, private router: Router) {}
 
   ngOnInit(): void {
     this.updatePolls();
 
-    this.pollUpdateSubscription1 = this.pollService.getPolls().subscribe(() => {
+    this.pollUpdateSubscription = this.pollService.getPolls().subscribe(() => {
       this.updatePolls();
-    });
-
-    this.pollUpdateSubscription2 = this.pollService.getPolls().subscribe(() => {
-      this.generalPolls = this.pollService.getPollsByType(PollType.General);
-      this.industryPolls = this.pollService.getPollsByType(PollType.Industry);
     });
   }
 
   private updatePolls(): void {
-    this.generalPolls = this.pollService.getPollsByType(PollType.General);
-    this.industryPolls = this.pollService.getPollsByType(PollType.Industry);
-  }
+    for (const type in PollType) {
+      if (Object.prototype.hasOwnProperty.call(PollType, type)) {
+        const key = type as keyof typeof PollType;
+        this.pollsByType[key] = this.pollService.getPollsByType(key as PollType);
 
-  onPollSelected(event: Event): void {
-    const selectElement = event.target as HTMLSelectElement;
-    const selectedPollId = +selectElement.value;  // Convert string to number using `+`
-    this.router.navigate(['/polls/poll', selectedPollId]);
-  }
-
+      }
+    }
+}
 
 
   ngOnDestroy(): void {
-    this.pollUpdateSubscription1.unsubscribe();
-    this.pollUpdateSubscription2.unsubscribe();
+    this.pollUpdateSubscription.unsubscribe();
   }
 }

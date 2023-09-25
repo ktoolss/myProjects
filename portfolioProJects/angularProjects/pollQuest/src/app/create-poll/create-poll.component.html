@@ -1,10 +1,16 @@
 <form (submit)="createPoll()">
-    <label for="question">Question:</label>
+    <label for="question">Question: </label>
     <input type="text" id="question" name="question" [(ngModel)]="newPoll.question" required>
     <br>
-    <select [(ngModel)]="selectedPollType">
+    <label for="question">Type: </label>
+    <!-- <select [(ngModel)]="selectedPollType">
+        <option *ngFor="let type of pollTypes" [ngValue]="type">{{type}}</option>
+    </select> -->
+    <select [value]="selectedPollType" (change)="updateSelectedPollType($event)">
         <option *ngFor="let type of pollTypes" [ngValue]="type">{{type}}</option>
     </select>
+    
+    <div>Selected Type: {{selectedPollType}}</div>
     <br>
     <label for="options">Options:</label>
     <div *ngFor="let option of newPoll.options; let i = index trackBy: trackByFn">
@@ -12,6 +18,7 @@
     </div>
 
     <button type="button" (click)="addOption()">Add Option</button>
+    <button type="button" (click)="removeOption()">Remove Option</button>
     <button type="submit">Create Poll</button>
 </form>
 

@@ -1,14 +1,16 @@
 <mat-card class="poll-card">
   <mat-card-content>
     <h2>{{ poll.question }}</h2>
-    <ul>
-      <li *ngFor="let option of poll.options">
-        <label>
-          <mat-radio-button (change)="vote(option)">
-            {{ option.text }} ({{ option.votes }} votes)
-          </mat-radio-button>
-        </label>
-      </li>
-    </ul>
+    <mat-radio-group>
+      <ul>
+        <li *ngFor="let option of poll.options">
+          <label>
+            <mat-radio-button [disabled]="hasVoted" value="{{ option.id }}" (change)="vote(option)">
+              {{ option.text }} ({{ option.votes }} votes)
+            </mat-radio-button>
+          </label>
+        </li>
+      </ul>
+    </mat-radio-group>
   </mat-card-content>
 </mat-card>

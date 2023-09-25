@@ -1,0 +1,6 @@
+<h2>Local Polls</h2>
+<ul>
+  <li *ngFor="let poll of localPolls">
+    <a [routerLink]="['/polls/poll', poll.id]">{{ poll.question }}</a>
+  </li>
+</ul>

@@ -3,23 +3,22 @@
         <a [routerLink]="['/polls/general']">General Polls</a>
         <br>
         <a [routerLink]="['/polls/industry']">Industry Polls</a>
+        <br>
+        <a [routerLink]="['/polls/national']">National Polls</a>
+        <br>
+        <a [routerLink]="['/polls/state']">State Polls</a>
+        <br>
+        <a [routerLink]="['/polls/local']">Local Polls</a>
+        <br>
+        <a [routerLink]="['/polls/politics']">Politics Polls</a>
+        <br>
+        <a [routerLink]="['/polls/music']">Music Polls</a>
+        <br>
+        <a [routerLink]="['/polls/television']">Television Polls</a>
+        <br>
+        <a [routerLink]="['/polls/marketing']">Marketing Polls</a>
+        <br>
         <router-outlet></router-outlet>
     </div>
     <img src="assets/whiteRasta.jpg" alt="white rasta" class="small-image">
 </div>
-
-<!-- Dropdown for General Polls -->
-<!-- <label for="generalPollsDropdown">General Polls:</label>
-<select id="generalPollsDropdown" (change)="onPollSelected($event)">
-  <option *ngFor="let poll of generalPolls" [value]="poll.id">{{ poll.question }}</option>
-</select> -->
-
-<!-- Dropdown for Industry Polls -->
-<!-- <label for="industryPollsDropdown">Industry Polls:</label>
-<select id="industryPollsDropdown" (change)="onPollSelected($event)">
-  <option *ngFor="let poll of industryPolls" [value]="poll.id">{{ poll.question }}</option>
-</select> -->
-
-
-
-<!-- <router-outlet></router-outlet> -->

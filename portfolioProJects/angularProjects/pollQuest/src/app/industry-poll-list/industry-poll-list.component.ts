@@ -1,19 +1,34 @@
-import { Component, OnInit } from '@angular/core';
-import { Poll, mockIndustryPolls } from '../poll/poll.types';
+// industry-poll-list.component.ts
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { PollService } from '../poll.service';
+import { Poll, mockIndustryPolls } from '../poll/poll.types';  // Adjust to industry polls
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-industry-poll-list',
   templateUrl: './industry-poll-list.component.html',
   styleUrls: ['./industry-poll-list.component.css']
 })
+export class IndustryPollListComponent implements OnInit, OnDestroy {
+  industryPolls: Poll[] = [];
+  basePolls: Poll[] = mockIndustryPolls;  // Reference to industry mock polls
+  private pollSubscription!: Subscription;
 
-export class IndustryPollListComponent implements OnInit {
-    industryPolls: Poll[] = [];  // Mock data or fetched data goes here.
+  constructor(private pollService: PollService) { }
 
-    constructor() { }
+  ngOnInit(): void {
+    this.basePolls = mockIndustryPolls;
 
-    ngOnInit(): void {
-    // If you're fetching data, do it here.
-    this.industryPolls = mockIndustryPolls ; // fetch or assign your mock data here
+    this.pollSubscription = this.pollService.getPolls().subscribe(servicePolls => {
+        console.log("Received updated polls:", servicePolls);
+        const allPolls = [...this.basePolls, ...servicePolls];
+        this.industryPolls = allPolls;  // If needed, add filtering logic based on poll type.
+    });
+  }
+
+  ngOnDestroy(): void {
+    if (this.pollSubscription) {
+      this.pollSubscription.unsubscribe();
     }
+  }
 }
