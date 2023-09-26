@@ -1,25 +1,31 @@
-<form (submit)="createPoll()">
-    <label for="question">Question: </label>
-    <input type="text" id="question" name="question" [(ngModel)]="newPoll.question" required>
-    <br>
-    <label for="question">Type: </label>
-    <!-- <select [(ngModel)]="selectedPollType">
-        <option *ngFor="let type of pollTypes" [ngValue]="type">{{type}}</option>
-    </select> -->
-    <select [value]="selectedPollType" (change)="updateSelectedPollType($event)">
-        <option *ngFor="let type of pollTypes" [ngValue]="type">{{type}}</option>
-    </select>
-    
-    <div>Selected Type: {{selectedPollType}}</div>
-    <br>
-    <label for="options">Options:</label>
-    <div *ngFor="let option of newPoll.options; let i = index trackBy: trackByFn">
-        <input type="text" id="option{{ i }}" name="options" [(ngModel)]="newPoll.options[i]" required>
+<div class="container create-poll-container" [ngClass]="{'animate': animate}">
+    <div class="left-content form">
+        <form (submit)="createPoll()">
+            <p>Create Poll</p>
+            <label for="question">Question: </label>
+            <input type="text" id="question" name="question" placeholder="Type your question" [(ngModel)]="newPoll.question" required>
+            <br>
+            <label for="question">Type: </label>
+            <select id="question" name="question" [value]="selectedPollType" (change)="updateSelectedPollType($event)">
+                <option *ngFor="let type of pollTypes" [ngValue]="type">{{type}}</option>
+            </select>
+            <div>Selected Type: {{selectedPollType}}</div>
+            <br>
+            <label for="options">Options:</label>
+            <div *ngFor="let option of newPoll.options; let i = index trackBy: trackByFn">
+                <input type="text" id="option{{ i }}" name="options" placeholder="Type the option" [(ngModel)]="newPoll.options[i]" required>
+            </div>
+            <button type="button" (click)="addOption()">Add Option</button>
+            <button type="button" (click)="removeOption()">Remove Option</button>
+            <button type="submit">Create Poll</button>
+        </form>
     </div>
-
-    <button type="button" (click)="addOption()">Add Option</button>
-    <button type="button" (click)="removeOption()">Remove Option</button>
-    <button type="submit">Create Poll</button>
-</form>
-
-<img src="assets/create.jpg" alt="People polling on laptops at table" class="small-image">
+    <div class="drops right-content">
+        <img src="assets/create.jpg" alt="People polling on laptops at table" class="small-image">
+        <div class="drop drop-1"></div>
+        <div class="drop drop-2"></div>
+        <div class="drop drop-3"></div>
+        <div class="drop drop-4"></div>
+        <div class="drop drop-5"></div>
+    </div>
+</div>

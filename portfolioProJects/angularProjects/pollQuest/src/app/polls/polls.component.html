@@ -1,24 +1,22 @@
-<div class="polls">
+<div class="polls" [ngClass]="{'animate': animate}">
+    <img src="assets/vote.jpg" alt="white rasta" class="small-image">
+
+    <br>
+
     <div class="content-container">
-        <a [routerLink]="['/polls/general']">General Polls</a>
-        <br>
-        <a [routerLink]="['/polls/industry']">Industry Polls</a>
-        <br>
-        <a [routerLink]="['/polls/national']">National Polls</a>
-        <br>
-        <a [routerLink]="['/polls/state']">State Polls</a>
-        <br>
-        <a [routerLink]="['/polls/local']">Local Polls</a>
-        <br>
-        <a [routerLink]="['/polls/politics']">Politics Polls</a>
-        <br>
-        <a [routerLink]="['/polls/music']">Music Polls</a>
-        <br>
-        <a [routerLink]="['/polls/television']">Television Polls</a>
-        <br>
-        <a [routerLink]="['/polls/marketing']">Marketing Polls</a>
-        <br>
-        <router-outlet></router-outlet>
+        <ul class="poll-list">
+            <li><a [routerLink]="['/polls/general']">General Polls</a></li>
+            <li><a [routerLink]="['/polls/industry']">Industry Polls</a></li>
+            <li><a [routerLink]="['/polls/national']">National Polls</a></li>
+            <li><a [routerLink]="['/polls/state']">State Polls</a></li>
+            <li><a [routerLink]="['/polls/local']">Local Polls</a></li>
+            <li><a [routerLink]="['/polls/politics']">Politics Polls</a></li>
+            <li><a [routerLink]="['/polls/music']">Music Polls</a></li>
+            <li><a [routerLink]="['/polls/television']">Television Polls</a></li>
+            <li><a [routerLink]="['/polls/marketing']">Marketing Polls</a></li>
+        </ul>
+        <div class="router-container">
+            <router-outlet></router-outlet>
+        </div>
     </div>
-    <img src="assets/whiteRasta.jpg" alt="white rasta" class="small-image">
 </div>

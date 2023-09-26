@@ -2,6 +2,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { Poll, PollType } from '../poll/poll.types';
 import { generateUniqueId } from '../utils/helpers'; // Update the path as needed
 import { PollService } from '../poll.service';
+import { AnimationToggleService } from '../animation-toggle.service';
+
 
 
 
@@ -11,7 +13,8 @@ import { PollService } from '../poll.service';
   styleUrls: ['./create-poll.component.css']
 })
 export class CreatePollComponent {
-  constructor(private pollService: PollService) {}
+  constructor(private pollService: PollService, private animationService: AnimationToggleService) {}
+  animate = false;
 
   @Output() pollCreated: EventEmitter<Poll> = new EventEmitter();
 
@@ -24,6 +27,12 @@ export class CreatePollComponent {
     question: '',
     options: ['', '', '']
   };
+
+  ngOnInit() {
+    this.animationService.animationEnabled$.subscribe(
+      (enabled) => (this.animate = enabled)
+    );
+  }
 
   updateSelectedPollType(event: any) {
     this.selectedPollType = event.target.value as PollType;
@@ -66,4 +75,7 @@ export class CreatePollComponent {
     return index;
   }
 
+  toggleAnimation() {
+    this.animationService.toggleAnimation();
+  }
 }

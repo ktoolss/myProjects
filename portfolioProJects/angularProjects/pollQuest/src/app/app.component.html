@@ -2,8 +2,14 @@
   <nav>
     <ul>
       <li><a routerLink="/">Home</a></li>
-      <a routerLink="/create-poll">Create Poll</a>
+      <li><a routerLink="/create-poll">Create Poll</a></li>
       <li><a routerLink="/polls">Polls</a></li>
+      <li>
+        <button (click)="toggleAnimation()">
+          Toggle Animation ({{ (animationEnabled$ | async) ? 'On' : 'Off' }})
+        </button>
+      </li>
+      
     </ul>
   </nav>
 

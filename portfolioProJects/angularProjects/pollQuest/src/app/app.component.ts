@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { mockPolls, mockIndustryPolls } from './poll/poll.types'; // Update path as needed
+import { mockPolls, mockIndustryPolls } from './poll/poll.types';
+import { AnimationToggleService } from './animation-toggle.service';
 
 interface PollOption {
   id: number;
@@ -21,7 +22,14 @@ interface Poll {
 export class AppComponent {
   polls: Poll[] = mockPolls;
   industryPolls: Poll[] = mockIndustryPolls;
+  animationEnabled$ = this.animationService.animationEnabled$;
+  
+  constructor(private animationService: AnimationToggleService) {}
 
+
+  toggleAnimation() {
+    this.animationService.toggleAnimation();
+  }
 
   clearLocalStorage() {
     localStorage.clear();

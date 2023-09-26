@@ -1,0 +1,6 @@
+nav ul {
+    display: flex;
+    gap: 20px; /* This adds some space between the list items */
+    padding: 0;
+    list-style-type: none;
+}
