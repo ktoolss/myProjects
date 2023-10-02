@@ -1,38 +1,14 @@
-.home {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* split the grid into two columns */
-    grid-template-rows: 40vh 40vh;
-    height: 100vh; /* make the grid take the full viewport height */
-}
-
-.home .section {
+.polls-container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    gap: 20px;
-    padding: 20px;
-    height: 40vh;
-    font-family: 'Roboto', sans-serif;
 }
 
-/* Apply different background colors to each section */
-.home .section1 {
-    background-color: #f2a2e8; /* Example color */
+.poll {
+    width: 90%; /* or any desired width */
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.home .section2 {
-    background-color: #a2f2e1; /* Example color */
-}
-
-.home .section3 {
-    background-color: #f2e2a2; /* Example color */
-}
-
-.home .section4 {
-    background-color: #a2a2f2; /* Example color */
-}
-
-.home .section img {
-    flex: 1;
-    max-width: 100%;
-}

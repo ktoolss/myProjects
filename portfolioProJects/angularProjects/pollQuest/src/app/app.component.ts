@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { mockPolls, mockIndustryPolls } from './poll/poll.types';
 import { AnimationToggleService } from './animation-toggle.service';
+import { Router } from '@angular/router';
 
 interface PollOption {
   id: number;
@@ -23,9 +24,13 @@ export class AppComponent {
   polls: Poll[] = mockPolls;
   industryPolls: Poll[] = mockIndustryPolls;
   animationEnabled$ = this.animationService.animationEnabled$;
-  
-  constructor(private animationService: AnimationToggleService) {}
 
+  constructor(private animationService: AnimationToggleService, private router: Router) {}
+
+
+  navigate(path: string) {
+    this.router.navigate([path]);
+  }
 
   toggleAnimation() {
     this.animationService.toggleAnimation();

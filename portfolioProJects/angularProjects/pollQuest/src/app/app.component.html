@@ -1,17 +1,16 @@
 <div class="center-container">
   <nav>
     <ul>
-      <li><a routerLink="/">Home</a></li>
-      <li><a routerLink="/create-poll">Create Poll</a></li>
-      <li><a routerLink="/polls">Polls</a></li>
-      <li>
-        <button (click)="toggleAnimation()">
+      <li><button mat-flat-button class="pink" (click)="navigate('/')">Home</button></li>
+      <li><button mat-flat-button class="yellow" (click)="navigate('/about')">About</button></li>
+      <li><button mat-flat-button class="black" (click)="navigate('/create-poll')">Create Poll</button></li>
+      <li><button mat-flat-button class="red" (click)="navigate('/polls')">Polls</button></li>
+      <li class="button-li">
+        <button mat-flat-button color="primary" (click)="toggleAnimation()">
           Toggle Animation ({{ (animationEnabled$ | async) ? 'On' : 'Off' }})
         </button>
       </li>
-      
     </ul>
   </nav>
-
   <router-outlet></router-outlet>
 </div>

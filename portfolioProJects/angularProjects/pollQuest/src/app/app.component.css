@@ -4,3 +4,24 @@ nav ul {
     padding: 0;
     list-style-type: none;
 }
+
+.button-li {
+    margin-left: auto;
+}
+
+button.red {
+    background-color: #FFA500;
+    color: white;
+}
+button.yellow {
+    background-color: #28a745;
+    color: white;
+}
+button.pink {
+    background-color: #FF007F;
+    color: white;
+}
+button.black {
+    background-color: #ADD8E6;
+    color: white;
+}

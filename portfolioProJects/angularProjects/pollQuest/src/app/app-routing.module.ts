@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AboutComponent } from './about/about.component';
 import { PollDetailComponent } from './poll-detail/poll-detail.component';
 import { HomeComponent } from './home/home.component';
 import { CreatePollComponent } from './create-poll/create-poll.component';
@@ -16,6 +17,7 @@ import { MarketingPollListComponent } from './marketing-poll-list/marketing-poll
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'about', component: AboutComponent },
   { 
     path: 'polls',
     component: PollsComponent,

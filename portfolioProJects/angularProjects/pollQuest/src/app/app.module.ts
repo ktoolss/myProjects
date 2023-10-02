@@ -16,7 +16,6 @@ import { PollListDropdownComponent } from './poll-list-dropdown/poll-list-dropdo
 import { HomeComponent } from './home/home.component';
 import { PollsComponent } from './polls/polls.component';
 import { CreatePollComponent } from './create-poll/create-poll.component';
-import { PollsService } from './polls.service';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
@@ -30,6 +29,9 @@ import { PoliticsPollListComponent } from './politics-poll-list/politics-poll-li
 import { MusicPollListComponent } from './music-poll-list/music-poll-list.component';
 import { TelevisionPollListComponent } from './television-poll-list/television-poll-list.component';
 import { MarketingPollListComponent } from './marketing-poll-list/marketing-poll-list.component';
+import { AboutComponent } from './about/about.component';
+import { MatButtonModule } from '@angular/material/button';
+
 
 
 @NgModule({
@@ -51,7 +53,8 @@ import { MarketingPollListComponent } from './marketing-poll-list/marketing-poll
     PoliticsPollListComponent,
     MusicPollListComponent,
     TelevisionPollListComponent,
-    MarketingPollListComponent
+    MarketingPollListComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
@@ -62,9 +65,10 @@ import { MarketingPollListComponent } from './marketing-poll-list/marketing-poll
     MatRadioModule,
     BrowserAnimationsModule,
     RouterModule.forRoot([]),
-    FormsModule
+    FormsModule,
+    MatButtonModule
   ],
-  providers: [PollsService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

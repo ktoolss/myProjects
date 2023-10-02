@@ -1,8 +1,8 @@
 // poll-detail.component.ts
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Poll, Option } from '../poll/poll.types';
-import { 
+import {
         mockPolls, 
         mockIndustryPolls,
         mockNationalPolls,
@@ -64,8 +64,6 @@ export class PollDetailComponent implements OnInit {
           ].find(poll => poll.id === this.pollId);
         }
       }
-      console.log('All Poll IDs: ', this.pollService.getAllPollIds());
-
     });
   }
   
@@ -75,6 +73,8 @@ export class PollDetailComponent implements OnInit {
   }
 
   submitVote() {
+    console.log('this.selectedOption: ', this.selectedOption)
+    console.log('this.poll: ', this.poll)
     if (this.selectedOption && this.poll) {
       this.selectedOption.votes++;
       this.voteService.setVoteData(this.pollId, this.poll);
