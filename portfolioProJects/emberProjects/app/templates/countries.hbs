@@ -1,0 +1,38 @@
+<div class="body-countries">
+<h1 class="margin-over text-center mt-4">Search for a Country</h1>
+<div class="margin-over d-flex justify-content-center my-4">
+    {{input value=this.countryName placeholder="Enter Country Name" class="form-control mr-2"}}
+    <button {{action "searchCountry"}} class="margin-over btn btn-primary">Search</button>
+</div>
+
+{{#if this.model}}
+    <div class="country-details text-center">
+        <img src="{{get this.model "0.flags.png"}}" alt="Flag of {{get this.model "0.name.common"}}" class="flag-image mb-3">
+        <div class="country-details">
+            <p><strong>Name:</strong> {{get this.model "0.name.common"}}</p>
+            <p><strong>Official Name:</strong> {{get this.model "0.name.official"}}</p>
+            <p><strong>Capital:</strong> {{get this.model "0.capital"}}</p>
+            <p><strong>Currencies:</strong></p>
+            <ul>
+                {{#each-in (get this.model "0.currencies") as |code currency|}}
+                <li>{{currency.name}} ({{code}})</li>
+                {{/each-in}}
+            </ul>
+            <p><strong>Languages:</strong></p>
+            <ul>
+                {{#if this.model.1.languages}}
+                {{#each-in (get this.model "1.languages") as |code language|}}
+                    <li>{{language}}</li>
+                {{/each-in}}
+                {{else}}
+                {{#each-in (get this.model "0.languages") as |code language|}}
+                    <li>{{language}}</li>
+                {{/each-in}}
+                {{/if}}
+            </ul>
+        </div>
+    </div>
+{{else}}
+    <p class="margin-over text-center">Enter a country name to get data</p>
+{{/if}}
+</div>

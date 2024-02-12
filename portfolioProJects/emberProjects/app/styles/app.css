@@ -1,0 +1,140 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+/* General Page Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+}
+
+  /* Navigation Bar */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+/* Search Area */
+.search-area {
+    margin-bottom: 20px;
+}
+
+.search-area input {
+    margin-right: 10px;
+}
+
+/* Country Information */
+.country-info {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.country-info img {
+    max-width: 100px;
+    border-radius: 4px;
+}
+
+.country-info ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Country Details Styling */
+.country-details {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+/* Image Styling */
+img {
+    max-width: 100px;
+    height: auto;
+    border-radius: 4px;
+}
+
+/* List Styling */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+.country-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+.flag-image {
+    max-width: 150px; /* Adjust as needed */
+    height: auto;
+    border-radius: 4px;
+}
+
+
+.body-countries {
+    margin-top: 10px;
+    height: 100vh;
+    background: linear-gradient(135deg, #FFB6C1 25%, #FFDAB9 25%, #FFDAB9 50%, #90EE90 50%, #90EE90 75%, #87CEFA 75%);
+}
+
+.margin-over {
+    margin-left: 10px;
+}
+
+.home-page {
+    text-align: center;
+    padding: 40px;
+}
+
+.home-page h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.home-page p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.feature-box {
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: white;
+}
+
+.feature-box h3 {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.feature-box p {
+    font-size: 1rem;
+    color: #666;
+}

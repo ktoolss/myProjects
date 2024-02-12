@@ -1,0 +1,10 @@
+{{!-- {{page-title "AirQuality"}}
+{{outlet}} --}}
+
+<h1>Air Quality Data</h1>
+{{#if this.model}}
+    {{!-- Display air quality data here --}}
+    <p>City: {{this.model.city}}</p>
+{{else}}
+    <p>Loading data...</p>
+{{/if}}
